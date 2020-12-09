@@ -50,7 +50,7 @@ class DemoInitMainActivity : AppCompatActivity(), RecycleViewOnClickListener {
         Log.d("Shrek", args.roomColor)
         title = "Recycle View"
 
-        val tableView: RecyclerView = findViewById(R.id.recyclerView)
+//        val tableView: RecyclerView = findViewById(R.id.recyclerView)
         recycleViewAdapter = RecycleViewAdapter(movieList, this)
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
