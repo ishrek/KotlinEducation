@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingLeft="16dp"
+        android:text="Title"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingLeft="16dp"
+        android:text="description"/>
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingLeft="16dp"
+        android:text="description"/>
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:onClick="btnSave"
+        android:text="Save" />
+    <Button
+        android:id="@+id/btnGetPosition"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:onClick="btnGetPosition"
+        android:text="Get Index" />
+
+</LinearLayout>
