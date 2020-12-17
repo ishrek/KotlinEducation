@@ -7,10 +7,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.myapplication.commonKotlin.*
+import com.example.myapplication.commonKotlin.demoDataBinding.DataBindingViewModel
 import com.example.myapplication.commonKotlin.DemoSendData.usingParcelable.PhieuChi
 import com.example.myapplication.commonKotlin.DemoSendData.usingSerializable.ObjectIntent
 import com.example.myapplication.commonKotlin.Model.Student
@@ -19,8 +22,8 @@ import com.example.myapplication.commonKotlin.Utils.CommonUtils
 import com.example.myapplication.commonKotlin.Utils.EXTRA_MESSAGE
 import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
-import com.example.myapplication.commonKotlin.mvp.models.PhotoModel
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
+import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.javaClass.Customer
 import java.lang.Integer.parseInt
 import java.util.*
@@ -48,10 +51,21 @@ class MainActivity : AppCompatActivity() {
         }
 
     lateinit var presenter: MainActivityPresenterImpl
+    lateinit var mainBinding : ActivityMainBinding
+    private val viewModel by lazy { ViewModelProviders.of(this).get(DataBindingViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
+
+        /*
+        *  DataBinding
+        *  https://codelabs.developers.google.com/codelabs/android-databinding#0
+        * */
+        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        mainBinding.lifecycleOwner = this
+        mainBinding.viewModel = viewModel
+
         ButterKnife.bind(this)
         text = findViewById(R.id.text)
         message = findViewById(R.id.message)
