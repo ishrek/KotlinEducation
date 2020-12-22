@@ -5,7 +5,7 @@
 
     <data>
         <variable name="viewModel"
-            type="com.example.myapplication.commonKotlin.demoDataBinding.DataBindingViewModel"/>
+            type="com.example.myapplication.commonKotlin.demoDataBinding.mvp.DataBindingViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,9 +37,10 @@
 
             <Button
                 android:background="#141ba9"
-                android:text="B1"
+                android:text="B3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/b3_button"/>
 
             <Button
                 android:background="#dc1a8b"

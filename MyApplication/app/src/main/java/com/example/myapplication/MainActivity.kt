@@ -13,7 +13,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.myapplication.commonKotlin.*
-import com.example.myapplication.commonKotlin.demoDataBinding.DataBindingViewModel
+import com.example.myapplication.commonKotlin.demoDataBinding.mvp.DataBindingViewModel
 import com.example.myapplication.commonKotlin.DemoSendData.usingParcelable.PhieuChi
 import com.example.myapplication.commonKotlin.DemoSendData.usingSerializable.ObjectIntent
 import com.example.myapplication.commonKotlin.Model.Student
@@ -32,26 +32,29 @@ import java.util.*
 data class User(val name: String = "", val age: Int = 0)
 class MainActivity : AppCompatActivity() {
 
-    lateinit var text: TextView
-    lateinit var message: TextView
-    lateinit var btnLoad: Button
-    lateinit var loginBtn: Button
-    lateinit var gotoInitNewActivityWithParams: Button
+    private lateinit var text: TextView
+    private lateinit var message: TextView
+    private lateinit var btnLoad: Button
+    private lateinit var loginBtn: Button
+    private lateinit var gotoInitNewActivityWithParams: Button
 
     @BindView(R.id.b2_button)
     lateinit var b2_button: Button
 
+    @BindView(R.id.b3_button)
+    lateinit var b3_button: Button
 
-    var safeVariable: String = "nam"
+
+    private var safeVariable: String = "nam"
     private var delegate = TrimDelegation()
-    var param: String
+    private var param: String
         get() = delegate.getValue(this, ::param)
         set(value) {
             delegate.setValue(this, ::param, value)
         }
 
-    lateinit var presenter: MainActivityPresenterImpl
-    lateinit var mainBinding : ActivityMainBinding
+    private lateinit var presenter: MainActivityPresenterImpl
+    private lateinit var mainBinding : ActivityMainBinding
     private val viewModel by lazy { ViewModelProviders.of(this).get(DataBindingViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,6 +101,11 @@ class MainActivity : AppCompatActivity() {
         Log.d("ishrek", "onLoginAction")
     }
 
+    @OnClick(R.id.b3_button)
+    fun onOpenDataBindingMVVM(){
+        startActivity<DataBindingMVVMActivity>(this)
+    }
+
     //MARK: Start activity with animation
     private inline fun <reified T> startActivity(context: Context) {
         startActivity(Intent(context, T::class.java).apply {
@@ -127,26 +135,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         param = "    aabbasd    "
-        var param1 = "   aasdasdasd   "
+//        var param1 = "   aasdasdasd   "
 
         setMessage()
-        var total: Int = getTotal(1, 2)
+//        var total: Int = getTotal(1, 2)
         printStr("hello world")
         printProduct("1", "b")
-        var result: Int? = getStringLength(1)
+//        var result: Int? = getStringLength(1)
         usingArray()
-        val fstr1 = "123.45f"
-        var long = fstr1.toIntOrNull()
+//        val fstr1 = "123.45f"
+//        var long = fstr1.toIntOrNull()
         //        var floatT : Float? = "A123.5f".toFloat() // throw NumberFormatException
         println("debug")
 
         //Demo class kotlin
-        val person: Person = Person("tuan")
+        val person = Person("tuan")
         println("class kotlin: " + person.name)
         person.v()
 
         //Demo class java
-        var custumer: Customer = Customer("Hello Thomas Partey")
+        var custumer = Customer("Hello Thomas Partey")
         println(custumer.name)
         println(Resource.name + " - " + Apple.iPad)
         println(custumer.placeOrder())
@@ -159,7 +167,7 @@ class MainActivity : AppCompatActivity() {
 
         usingWhenExpression(1)
 
-        var child2: Child2 = Child2()
+        var child2 = Child2()
         println("child2: " + child2.prop)
         println(child2.foo())
         println(child2.greaterthanTen(13))

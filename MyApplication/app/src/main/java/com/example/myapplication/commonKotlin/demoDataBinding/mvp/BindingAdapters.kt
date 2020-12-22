@@ -1,4 +1,4 @@
-package com.example.myapplication.commonKotlin.demoDataBinding
+package com.example.myapplication.commonKotlin.demoDataBinding.mvp
 
 import android.view.View
 import androidx.databinding.BindingAdapter
