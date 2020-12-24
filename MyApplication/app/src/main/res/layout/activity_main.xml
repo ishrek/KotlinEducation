@@ -23,7 +23,7 @@
 
             <Button
                 android:background="#dc9e1a"
-                android:text="B1"
+                android:text="RecycleView+DataBinding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/b1_button" />
@@ -37,7 +37,7 @@
 
             <Button
                 android:background="#141ba9"
-                android:text="B3"
+                android:text="MVVM - 1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/b3_button"/>

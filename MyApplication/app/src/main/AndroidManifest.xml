@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Mvvm2Activity"></activity>
+        <activity android:name=".commonKotlin.demoDataBinding.dataBindingRecycleView.MVVM2Activity" />
         <activity
             android:name=".DataBindingMVVMActivity"
             android:label="@string/title_activity_data_binding_m_v_v_m"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

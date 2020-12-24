@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     @OnClick(R.id.b1_button)
     fun onLoginAction() {
-        Log.d("ishrek", "onLoginAction")
+        startActivity<Mvvm2Activity>(this)
     }
 
     @OnClick(R.id.b3_button)
