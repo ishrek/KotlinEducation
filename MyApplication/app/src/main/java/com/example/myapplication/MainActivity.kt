@@ -22,6 +22,7 @@ import com.example.myapplication.commonKotlin.Utils.CommonUtils
 import com.example.myapplication.commonKotlin.Utils.EXTRA_MESSAGE
 import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
+import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.javaClass.Customer
@@ -104,6 +105,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.b3_button)
     fun onOpenDataBindingMVVM(){
         startActivity<DataBindingMVVMActivity>(this)
+    }
+
+    @OnClick(R.id.demoFragment)
+    fun onOpenDemoFragment() {
+        startActivity<demoFragmentActivity>(this)
     }
 
     //MARK: Start activity with animation

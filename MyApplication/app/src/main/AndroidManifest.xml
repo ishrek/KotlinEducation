@@ -9,6 +9,20 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
+<!--    launchMode:-->
+<!--    - standard (default) : activity co the duoc tao nhieu lan va cho nhieu task khac nhau, 1 task co the chua nhieu instane cua 1 activitymới-->
+<!--    ví du: startActivity C -> backstack : A, B, C, C-->
+<!--    - singleTop: giống standard, ngoại trừ việc : neu da co 1 instance cua acti nằm ở  của task hiện tại, thì hệ thống sẽ đưa intent qua lời gọi phương thức NewIntent() thay vì tạo new intent-->
+<!--    ví du: startActivity C -> backstack : A, B, C-->
+<!--    - singleTask: hệ thống sẽ tạo task mới. Nếu đã có 1 instance ở 1 task nào trước đó. Hệ thống sẽ đưa intent tới instance đã tồn tại đó thông quá onNewInstance() ( chỉ có 1 instanc được tồn tại tại 1 thời điểm).-->
+<!--    ( vậy task cũ đi đâu, để làm gì , lsao xem đươc có bao nhiêu task )-->
+<!--    ví dụ :-->
+<!--    + task 1: A, B , C - Khi start D, thì hệ thống sẽ tạo task mới và đẩy D vào đó-->
+<!--    + task 1: A, B, C - Khi start A  thì B, C sẽ bị destroy, A sẽ đưa Instances activity đó lên đầu task hiện tại, và gọi hàm onNewIntent()&ndash;&gt;-->
+<!--    singleInstance:-->
+<!--    Khi gọi thằng này, hệ thống sẽ cho Instance của Activity đó qua 1 task mới, nó sẽ là root của task mới đó, không chơi với ai, khi gọi Intent khác, thì no quay lại task còn lại và thêm Instance của activiti mới vào. Tuy nhiên nếu nó gọi bản thân nó thì sẽ vào onNewIntent().-->
+<!--    Ở đây nghĩa là : Task 1: A , Task 2: B C D . Task 2 đang ỏ foreground . Gọi A -> Task 1 lên foreground. Task 2 pause. khi Task 1 gọi B -> Task 2 foreground và trở thành: B C D B-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +30,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".commonKotlin.demoFragment.demoFragmentActivity"></activity>
         <activity android:name=".Mvvm2Activity" />
         <activity android:name=".commonKotlin.demoDataBinding.dataBindingRecycleView.MVVM2Activity" />
         <activity
@@ -25,7 +40,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

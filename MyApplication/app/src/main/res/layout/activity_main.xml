@@ -23,7 +23,7 @@
 
             <Button
                 android:background="#dc9e1a"
-                android:text="RecycleView+DataBinding"
+                android:text="ReView+DataBinding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/b1_button" />
@@ -59,9 +59,10 @@
             xmlns:android="http://schemas.android.com/apk/res/android">
 
             <Button
+                android:id="@+id/demoFragment"
                 android:layout_weight="1"
                 android:background="#dc9e1a"
-                android:text="A1"
+                android:text="Fragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -111,7 +112,8 @@
             android:text="Thomas Partey Arsenal.com.vn"
             app:layout_constraintLeft_toLeftOf="@id/text"
             app:layout_constraintRight_toRightOf="@id/text"
-            app:layout_constraintTop_toBottomOf="@id/text" />
+            app:layout_constraintTop_toBottomOf="@id/text"
+            android:background="@color/colorAccent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

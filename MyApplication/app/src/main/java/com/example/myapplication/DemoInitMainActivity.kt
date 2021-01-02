@@ -14,8 +14,6 @@ import com.example.myapplication.reycleViewDemo.MovieModel
 import com.example.myapplication.reycleViewDemo.RecycleViewAdapter
 import kotlinx.android.synthetic.main.activity_demo_init_main.*
 
-
-
 class DemoInitMainActivity : AppCompatActivity(), RecycleViewOnClickListener {
     class StartActivityWithParams(val roomColor: String, val numOfRooms: Int) {
         companion object {
