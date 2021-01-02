@@ -7,7 +7,8 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.myapplication.R
 
-
+//https://yellowcodebooks.com/2017/12/09/android-bai-32-hien-thi-fragment/
+//https://freetuts.net/fragment-trong-android-2154.html
 class demoFragmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
