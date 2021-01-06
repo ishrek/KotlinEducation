@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.example.myapplication.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -18,6 +16,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class TwoFragment : Fragment() {
+    @BindView(R.id.tv2)
+    lateinit var textView2: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -26,7 +27,14 @@ class TwoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_two, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_two, container, false)
+        ButterKnife.bind(this, view)
+        return view
+    }
+
+    // set text cho TextView
+    fun showValue(name: String?) {
+        textView2.text = name
     }
 }

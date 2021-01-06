@@ -10,15 +10,24 @@
         android:layout_height="match_parent"
         android:background="@color/design_default_color_error">
         <TextView
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/hello_blank_fragment" />
 
         <Button
+            android:id="@+id/send"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Hello fragment"
             android:background="@color/colorPrimaryDark"/>
+
+        <Button
+            android:id="@+id/SendViaEventBus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="EventBus"
+            android:background="@color/colorAccent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

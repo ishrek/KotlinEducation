@@ -4,11 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import butterknife.BindView
+import butterknife.ButterKnife
+import butterknife.OnClick
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
+import com.example.myapplication.commonKotlin.demoFragment.inferfaceFragment.IDemoFragment
+import com.example.myapplication.commonKotlin.demoFragment.inferfaceFragment.SendData
+import org.greenrobot.eventbus.EventBus
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +32,11 @@ private const val ARG_PARAM2 = "param2"
  */
 class OneFragment : Fragment() {
 
+    @BindView(R.id.textView1)
+    lateinit var text_input: TextView
+
+    var listener: IDemoFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("ishrek", "onCreate fragment")
@@ -33,8 +48,10 @@ class OneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.d("ishrek", "onCreateView")
+        val view = inflater.inflate(R.layout.fragment_one, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_one, container, false)
+        ButterKnife.bind(this, view)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -60,6 +77,12 @@ class OneFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("ishrek", "onAttach")
+        if (context is demoFragmentActivity) listener =
+            context as IDemoFragment // gan listener vao MainActivity
+        else throw RuntimeException(
+            "$context must implement onViewSelected!"
+        )
+        Toast.makeText(activity, "Fragment : onAttach", Toast.LENGTH_LONG).show()
     }
 
     override fun onPause() {
@@ -85,5 +108,16 @@ class OneFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         Log.d("ishrek", "onDetach")
+    }
+
+    @OnClick(R.id.send)
+    fun sendTapped() {
+        listener?.sendData("Saka", "")
+    }
+
+    @OnClick(R.id.SendViaEventBus)
+    fun sendViaEventBus() {
+        Log.d("ishrek", "sendViaEventBus")
+        EventBus.getDefault().post(SendData("Gabriel"))
     }
 }
