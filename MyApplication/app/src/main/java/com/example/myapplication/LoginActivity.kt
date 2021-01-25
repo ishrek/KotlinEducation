@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_login)
         loginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         // bind RecyclerView
         val recyclerView: RecyclerView = loginBinding.viewEmployees
