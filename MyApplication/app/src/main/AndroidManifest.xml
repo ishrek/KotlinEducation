@@ -17,8 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".commonKotlin.demoSQLite.SqliteDemoActivity"
-            android:label="@string/title_activity_sqlite_demo"
+            android:name=".commonKotlin.sharePreferences.SharePreferenceActivity"
+            android:label="@string/title_activity_share_preference"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".commonKotlin.demoActionBar.ActionBarActivity"
@@ -26,7 +26,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".commonKotlin.demoFragment.demoFragmentActivity" />
         <activity android:name=".Mvvm2Activity" />
-        <activity android:name=".commonKotlin.demoDataBinding.dataBindingRecycleView.MVVM2Activity" />
         <activity
             android:name=".DataBindingMVVMActivity"
             android:label="@string/title_activity_data_binding_m_v_v_m"

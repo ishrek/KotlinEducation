@@ -15,4 +15,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_action_bar">Action Bar Name</string>
     <string name="title_activity_sqlite_demo">SqliteDemoActivity</string>
+    <string name="title_activity_share_preference">SharePreferenceActivity</string>
 </resources>

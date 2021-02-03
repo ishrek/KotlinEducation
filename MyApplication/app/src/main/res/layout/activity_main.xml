@@ -98,6 +98,13 @@
                 android:onClick="@{() -> viewModel.changeName()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/sharePreferences"
+                android:layout_weight="4"
+                android:background="#dc1a8b"
+                android:text="sharePreferences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
 
