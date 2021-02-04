@@ -9,7 +9,7 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.myapplication.R
 
-
+//https://www.stdio.vn/android/luu-tru-du-lieu-voi-shared-preferences-trong-android-eADea
 class SharePreferenceActivity : AppCompatActivity() {
 
     @BindView(R.id.seekBar_sound)
