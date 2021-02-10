@@ -24,6 +24,7 @@ import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
 import com.example.myapplication.commonKotlin.demoActionBar.ActionBarActivity
 import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
+import com.example.myapplication.commonKotlin.demoView.DemoViewActivity
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
 import com.example.myapplication.commonKotlin.sharePreferences.SharePreferenceActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -127,6 +128,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.sharePreferences)
     fun onSharePreferences() {
         startActivity<SharePreferenceActivity>(this)
+    }
+
+    @OnClick(R.id.demoView)
+    fun onDemoLayoutView() {
+        startActivity<DemoViewActivity>(this)
     }
 
     //MARK: Start activity with animation

@@ -16,10 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".commonKotlin.demoView.DemoViewActivity"></activity>
         <activity
             android:name=".commonKotlin.sharePreferences.SharePreferenceActivity"
             android:label="@string/title_activity_share_preference"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".commonKotlin.demoActionBar.ActionBarActivity"
             android:label="@string/title_activity_action_bar"
