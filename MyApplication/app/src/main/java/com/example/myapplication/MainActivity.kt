@@ -24,6 +24,8 @@ import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
 import com.example.myapplication.commonKotlin.demoActionBar.ActionBarActivity
 import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
+import com.example.myapplication.commonKotlin.demoThread.AsynTaskActivity
+import com.example.myapplication.commonKotlin.demoThread.ThreadActivity
 import com.example.myapplication.commonKotlin.demoView.DemoViewActivity
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
 import com.example.myapplication.commonKotlin.sharePreferences.SharePreferenceActivity
@@ -134,6 +136,17 @@ class MainActivity : AppCompatActivity() {
     fun onDemoLayoutView() {
         startActivity<DemoViewActivity>(this)
     }
+
+    @OnClick(R.id.demoThread)
+    fun onDemoThreadView() {
+        startActivity<ThreadActivity>(this)
+    }
+
+    @OnClick(R.id.demoAsynTask)
+    fun onDemoAsynTask() {
+        startActivity<AsynTaskActivity>(this)
+    }
+
 
     //MARK: Start activity with animation
     private inline fun <reified T> startActivity(context: Context) {

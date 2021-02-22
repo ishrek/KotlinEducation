@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".commonKotlin.demoView.DemoViewActivity"></activity>
+        <activity android:name=".commonKotlin.demoThread.AsynTaskActivity"></activity>
+        <activity android:name=".commonKotlin.demoThread.ThreadActivity" />
+        <activity android:name=".commonKotlin.demoView.DemoViewActivity" />
         <activity
             android:name=".commonKotlin.sharePreferences.SharePreferenceActivity"
             android:label="@string/title_activity_share_preference"
