@@ -95,4 +95,7 @@ dependencies {
 
     // Testing
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+
+    //oktp
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 }

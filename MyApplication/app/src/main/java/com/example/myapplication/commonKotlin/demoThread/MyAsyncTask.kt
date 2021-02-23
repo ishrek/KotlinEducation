@@ -25,8 +25,32 @@ class MyAsyncTask(
         startTimeInMillis = Date().time
     }
 
+    override fun doInBackground(vararg params: ParamInfo?): ResultInfo {
+        //Hàm được được hiện tiếp sau hàm onPreExecute()
+        //Hàm này thực hiện các tác vụ chạy ngầm
+        //Tuyệt đối k vẽ giao diện trong hàm này
+
+        val WORK_MAX = 30
+        while (workCount < WORK_MAX) {
+            SystemClock.sleep(1000) // 100 Milliseconds.
+            workCount++
+            val progress = workCount * PROGRESS_MAX / WORK_MAX // Progress value.
+            val percent = progress * 100 / PROGRESS_MAX
+            val info =
+                "($percent%) - Working part $workCount of $WORK_MAX"
+            val progressInfo = ProgressInfo(progress, info)
+            //khi gọi hàm này thì onProgressUpdate sẽ thực thi
+            publishProgress(progressInfo) // Progress ...values
+        }
+        val finishTimeInMillis: Long = Date().time
+        val workTimeInMillis = finishTimeInMillis - startTimeInMillis
+        return ResultInfo(true, workTimeInMillis)
+    }
+
     override fun onProgressUpdate(vararg values: ProgressInfo?) {
-        super.onProgressUpdate(*values)
+        //Hàm thực hiện update giao diện khi có dữ liệu từ hàm doInBackground gửi xuống
+        super.onProgressUpdate(*values);
+        //Thông qua contextCha để lấy được control trong MainActivity
         val progressInfo: ProgressInfo = values[0]!!
         val progress: Int = progressInfo.progress
         progressBar.progress = progress
@@ -47,20 +71,5 @@ class MyAsyncTask(
         textViewInfo.text = resultInfo.message
     }
 
-    override fun doInBackground(vararg params: ParamInfo?): ResultInfo {
-        val WORK_MAX = 30
-        while (workCount < WORK_MAX) {
-            SystemClock.sleep(100) // 100 Milliseconds.
-            workCount++
-            val progress = workCount * PROGRESS_MAX / WORK_MAX // Progress value.
-            val percent = progress * 100 / PROGRESS_MAX
-            val info =
-                "($percent%) - Working part $workCount of $WORK_MAX"
-            val progressInfo = ProgressInfo(progress, info)
-            publishProgress(progressInfo) // Progress ...values
-        }
-        val finishTimeInMillis: Long = Date().time
-        val workTimeInMillis = finishTimeInMillis - startTimeInMillis
-        return ResultInfo(true, workTimeInMillis)
-    }
+
 }
