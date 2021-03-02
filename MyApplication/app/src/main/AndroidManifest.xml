@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".commonKotlin.demoThread.AsynTaskActivity"></activity>
+        <activity android:name=".commonKotlin.mvp2.views.Mvp2Activity"></activity>
+        <activity android:name=".commonKotlin.demoThread.AsynTaskActivity" />
         <activity android:name=".commonKotlin.demoThread.ThreadActivity" />
         <activity android:name=".commonKotlin.demoView.DemoViewActivity" />
         <activity

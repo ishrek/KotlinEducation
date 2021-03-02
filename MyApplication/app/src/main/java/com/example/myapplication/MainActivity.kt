@@ -28,6 +28,7 @@ import com.example.myapplication.commonKotlin.demoThread.AsynTaskActivity
 import com.example.myapplication.commonKotlin.demoThread.ThreadActivity
 import com.example.myapplication.commonKotlin.demoView.DemoViewActivity
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
+import com.example.myapplication.commonKotlin.mvp2.views.Mvp2Activity
 import com.example.myapplication.commonKotlin.sharePreferences.SharePreferenceActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.javaClass.Customer
@@ -130,6 +131,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.sharePreferences)
     fun onSharePreferences() {
         startActivity<SharePreferenceActivity>(this)
+    }
+
+    @OnClick(R.id.mvp2)
+    fun onMvp2() {
+        startActivity<Mvp2Activity>(this)
     }
 
     @OnClick(R.id.demoView)
