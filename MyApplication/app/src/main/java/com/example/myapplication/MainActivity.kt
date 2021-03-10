@@ -24,6 +24,7 @@ import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
 import com.example.myapplication.commonKotlin.demoActionBar.ActionBarActivity
 import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
+import com.example.myapplication.commonKotlin.demoService.ServiceActivity
 import com.example.myapplication.commonKotlin.demoThread.AsynTaskActivity
 import com.example.myapplication.commonKotlin.demoThread.ThreadActivity
 import com.example.myapplication.commonKotlin.demoView.DemoViewActivity
@@ -151,6 +152,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.demoAsynTask)
     fun onDemoAsynTask() {
         startActivity<AsynTaskActivity>(this)
+    }
+
+    @OnClick(R.id.service1)
+    fun onDemoService() {
+        startActivity<ServiceActivity>(this)
     }
 
 

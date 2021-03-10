@@ -135,6 +135,13 @@
                 android:text="mvp2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/service1"
+                android:layout_weight="4"
+                android:background="#00c853"
+                android:text="service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
