@@ -3,6 +3,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -30,6 +31,18 @@
             android:name=".commonKotlin.demoService.demoForgroundService.ForgroundService"
             android:enabled="true"
             android:exported="true"/>
+
+        <service android:name=".commonKotlin.demoService.demoJobScheduler.MyJobService"
+            android:label="Test"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
+        <service android:name=".commonKotlin.demoService.demoJobScheduler.DeepJobService"
+            android:label="Test"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
+
 
         <activity android:name=".commonKotlin.mvp2.views.Mvp2Activity" />
         <activity android:name=".commonKotlin.demoThread.AsynTaskActivity" />

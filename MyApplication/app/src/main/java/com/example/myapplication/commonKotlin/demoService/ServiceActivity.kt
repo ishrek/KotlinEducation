@@ -1,19 +1,37 @@
 package com.example.myapplication.commonKotlin.demoService
 
 import android.app.ActivityManager
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.myapplication.R
 import com.example.myapplication.commonKotlin.demoService.demoForgroundService.ForgroundService
+import com.example.myapplication.commonKotlin.demoService.demoJobScheduler.DeepJobService
+import com.example.myapplication.commonKotlin.demoService.demoJobScheduler.MyJobService
 
 import kotlinx.android.synthetic.main.activity_service.*
 
 class ServiceActivity : AppCompatActivity() {
+
+    companion object {
+        private const val TAG = "ServiceActivity"
+        private const val SUCCESS_KEY = "SUCCESS"
+        private const val FAILED_KEY = "FAILED"
+        private const val JOB_ID = 123
+        private const val PERIODIC_TIME: Long = 15 * 60 * 1000
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service)
@@ -64,6 +82,9 @@ class ServiceActivity : AppCompatActivity() {
         buttonStopService.setOnClickListener{
             stopService()
         }
+
+        buttonStartJobSchedule.setOnClickListener { scheduleJob() }
+        buttonStopJobSchedule.setOnClickListener { cancelJob() }
     }
 
     private fun startService() {
@@ -90,6 +111,41 @@ class ServiceActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun scheduleJob() {
+//        val componentName = ComponentName(this, MyJobService::class.java)
+//        val info = JobInfo.Builder(JOB_ID, componentName)
+//            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+//            .setRequiresDeviceIdle(false)
+//            .setRequiresCharging(true)
+//            .setPersisted(true)
+//            .setPeriodic(PERIODIC_TIME)
+//            .build()
+//
+//        val jobScheduler: JobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+//        val resultCode = jobScheduler.schedule(info)
+//
+//        val isJobScheduledSuccess = resultCode == JobScheduler.RESULT_SUCCESS
+//        Log.d(TAG, "Job Scheduled ${if (isJobScheduledSuccess) SUCCESS_KEY else FAILED_KEY}")
+
+        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        val jobInfo = JobInfo.Builder(JOB_ID, ComponentName(this, DeepJobService::class.java))
+        val job = jobInfo.setRequiresCharging(false)
+            .setMinimumLatency(1)
+            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+            .setOverrideDeadline(PERIODIC_TIME).build()
+
+        jobScheduler.schedule(job)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun cancelJob() {
+        val jobScheduler: JobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        jobScheduler.cancel(JOB_ID)
+        Log.d(TAG, "Job CANCELED")
     }
 }
 

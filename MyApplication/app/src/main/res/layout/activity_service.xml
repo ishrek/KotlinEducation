@@ -28,7 +28,7 @@
         android:text="Service Statuts"
         />
 
-<!--    Foregroud service-->
+<!--    Foreground service-->
     <Button
         android:id="@+id/buttonStartService"
         android:layout_width="wrap_content"
@@ -41,4 +41,18 @@
         android:layout_height="wrap_content"
         android:text="Stop Foreground Service"
        />
+
+    <!--    jobSchedule service-->
+    <Button
+        android:id="@+id/buttonStartJobSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start jobSchedule"
+        />
+    <Button
+        android:id="@+id/buttonStopJobSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop jobSchedule"
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>
