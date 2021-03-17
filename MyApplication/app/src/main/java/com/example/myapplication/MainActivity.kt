@@ -24,6 +24,8 @@ import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
 import com.example.myapplication.commonKotlin.demoActionBar.ActionBarActivity
 import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
+import com.example.myapplication.commonKotlin.demoNotifcations.DemoNotificationActivity
+import com.example.myapplication.commonKotlin.demoNotifcations.Noti2Activity
 import com.example.myapplication.commonKotlin.demoService.ServiceActivity
 import com.example.myapplication.commonKotlin.demoThread.AsynTaskActivity
 import com.example.myapplication.commonKotlin.demoThread.ThreadActivity
@@ -157,6 +159,16 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.service1)
     fun onDemoService() {
         startActivity<ServiceActivity>(this)
+    }
+
+    @OnClick(R.id.noti)
+    fun onDemoNotification() {
+        startActivity<DemoNotificationActivity>(this)
+    }
+
+    @OnClick(R.id.noti2)
+    fun onDemoNotification2() {
+        startActivity<Noti2Activity>(this)
     }
 
 

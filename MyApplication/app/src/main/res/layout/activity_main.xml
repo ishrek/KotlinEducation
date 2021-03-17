@@ -143,6 +143,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:id="@+id/noti"
+                android:layout_weight="4"
+                android:background="#00c853"
+                android:text="Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/noti2"
+                android:layout_weight="4"
+                android:background="#dc1a8b"
+                android:text="Noti 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
 

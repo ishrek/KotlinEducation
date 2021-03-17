@@ -10,6 +10,8 @@ import androidx.annotation.RequiresApi
 
 const val SAVED_INT_KEY = "int_key";
 
+
+//https://viblo.asia/p/tong-quan-service-trong-android-maGK7M8elj2
 // Small play code for JobSchedulers
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class DeepJobService : JobService() {

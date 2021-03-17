@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -19,30 +19,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".commonKotlin.demoNotifcations.Noti2Activity"></activity>
+        <activity android:name=".commonKotlin.demoNotifcations.afterNotificationActivity" />
+        <activity android:name=".commonKotlin.demoNotifcations.DemoNotificationActivity" />
         <activity android:name=".commonKotlin.demoService.ServiceActivity" />
 
         <service
             android:name=".commonKotlin.demoService.RandomNumberService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name=".commonKotlin.demoService.demoForgroundService.ForgroundService"
             android:enabled="true"
-            android:exported="true"/>
-
-        <service android:name=".commonKotlin.demoService.demoJobScheduler.MyJobService"
+            android:exported="true" />
+        <service
+            android:name=".commonKotlin.demoService.demoJobScheduler.MyJobService"
+            android:exported="true"
             android:label="Test"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="true"/>
-
-        <service android:name=".commonKotlin.demoService.demoJobScheduler.DeepJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".commonKotlin.demoService.demoJobScheduler.DeepJobService"
+            android:exported="true"
             android:label="Test"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="true"/>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
-
+        <receiver
+            android:name=".commonKotlin.demoNotifcations.receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+        <receiver
+            android:name=".commonKotlin.demoNotifcations.receiver.SnoozeReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
 
         <activity android:name=".commonKotlin.mvp2.views.Mvp2Activity" />
         <activity android:name=".commonKotlin.demoThread.AsynTaskActivity" />
