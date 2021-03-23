@@ -13,7 +13,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -98,4 +98,12 @@ dependencies {
 
     //oktp
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+
+    //dependencies Injection - dagger 2
+    implementation 'com.google.dagger:dagger:2.13'
+    kapt 'com.google.dagger:dagger-compiler:2.13'
+
+    //Fotoapparat
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'io.fotoapparat:fotoapparat:2.6.1'
 }

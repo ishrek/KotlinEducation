@@ -23,6 +23,8 @@ import com.example.myapplication.commonKotlin.Utils.EXTRA_MESSAGE
 import com.example.myapplication.commonKotlin.collection.CollectionDemo
 import com.example.myapplication.commonKotlin.delegationUtil.TrimDelegation
 import com.example.myapplication.commonKotlin.demoActionBar.ActionBarActivity
+import com.example.myapplication.commonKotlin.demoCamera.basic.Camera1Activity
+import com.example.myapplication.commonKotlin.demoCamera.fotoapprat.Camera2Activity
 import com.example.myapplication.commonKotlin.demoFragment.demoFragmentActivity
 import com.example.myapplication.commonKotlin.demoNotifcations.DemoNotificationActivity
 import com.example.myapplication.commonKotlin.demoNotifcations.Noti2Activity
@@ -38,7 +40,10 @@ import com.example.myapplication.javaClass.Customer
 import java.lang.Integer.parseInt
 import java.util.*
 
-
+/*
+* Clean code : https://vntalking.com/clean-code-android-ban-da-that-su-hieu-dung-chua.html#su-dung-quy-tac-solid-de-viet-clean-code-android
+* Create Presenter : https://vntalking.com/cach-tao-presenter-mvp-doc-lap-voi-android-class.html
+* */
 data class User(val name: String = "", val age: Int = 0)
 class MainActivity : AppCompatActivity() {
 
@@ -64,8 +69,10 @@ class MainActivity : AppCompatActivity() {
         }
 
     private lateinit var presenter: MainActivityPresenterImpl
-    private lateinit var mainBinding : ActivityMainBinding
-    private val viewModel by lazy { ViewModelProviders.of(this).get(DataBindingViewModel::class.java) }
+    private lateinit var mainBinding: ActivityMainBinding
+    private val viewModel by lazy {
+        ViewModelProviders.of(this).get(DataBindingViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,7 +107,10 @@ class MainActivity : AppCompatActivity() {
 
         gotoInitNewActivityWithParams = findViewById(R.id.gotoInitVC)
         gotoInitNewActivityWithParams.setOnClickListener {
-            DemoInitMainActivity.StartActivityWithParams( roomColor = "Mikel Arteta", numOfRooms = Integer.parseInt("10" ?: "0")).startActivity(this)
+            DemoInitMainActivity.StartActivityWithParams(
+                roomColor = "Mikel Arteta",
+                numOfRooms = Integer.parseInt("10" ?: "0")
+            ).startActivity(this)
         }
 
         b2_button.text = "aaaa"
@@ -117,7 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @OnClick(R.id.b3_button)
-    fun onOpenDataBindingMVVM(){
+    fun onOpenDataBindingMVVM() {
         startActivity<DataBindingMVVMActivity>(this)
     }
 
@@ -171,6 +181,16 @@ class MainActivity : AppCompatActivity() {
         startActivity<Noti2Activity>(this)
     }
 
+    @OnClick(R.id.camera_button)
+    fun onDemoOpenCamera1() {
+        startActivity<Camera1Activity>(this)
+    }
+
+    @OnClick(R.id.camera2)
+    fun onDemoOpenCamera2() {
+        startActivity<Camera2Activity>(this)
+    }
+
 
     //MARK: Start activity with animation
     private inline fun <reified T> startActivity(context: Context) {
@@ -196,7 +216,7 @@ class MainActivity : AppCompatActivity() {
     private fun demoKotlin() {
         //check null variable
         safeVariable?.let {
-            var length = safeVariable.length
+            var length = it.length
             println("length = $length")
         }
 

@@ -158,7 +158,19 @@
                 android:text="Noti 2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
+            <Button
+                android:background="#141ba9"
+                android:text="Camera 1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/camera_button"/>
+            <Button
+                android:id="@+id/camera2"
+                android:layout_weight="4"
+                android:background="#dc1a8b"
+                android:text="Camera 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
 

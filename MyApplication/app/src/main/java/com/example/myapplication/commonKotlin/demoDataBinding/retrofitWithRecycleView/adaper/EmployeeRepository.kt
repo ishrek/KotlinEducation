@@ -19,9 +19,11 @@ class EmployeeRepository {
         userDataService.employees?.enqueue(object : Callback<EmployeeDBResponse?> {
             override fun onResponse(call: Call<EmployeeDBResponse?>?, response: Response<EmployeeDBResponse?>) {
                 val employeeDBResponse: EmployeeDBResponse? = response.body()
-                if (employeeDBResponse?.employee != null) {
-                    employees = employeeDBResponse.employee as ArrayList<Employee>?
-                    mutableLiveData.value = employees
+                employeeDBResponse?.let {
+                    if (it.employee != null) {
+                        employees = it.employee as ArrayList<Employee>?
+                        mutableLiveData.value = employees
+                    }
                 }
             }
 

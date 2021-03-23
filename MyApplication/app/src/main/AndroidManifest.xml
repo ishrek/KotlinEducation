@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".commonKotlin.demoNotifcations.Noti2Activity"></activity>
+        <activity android:name=".commonKotlin.demoCamera.fotoapprat.Camera2Activity"></activity>
+        <activity android:name=".commonKotlin.demoCamera.basic.Camera1Activity" />
+        <activity android:name=".commonKotlin.demoNotifcations.Noti2Activity" />
         <activity android:name=".commonKotlin.demoNotifcations.afterNotificationActivity" />
         <activity android:name=".commonKotlin.demoNotifcations.DemoNotificationActivity" />
         <activity android:name=".commonKotlin.demoService.ServiceActivity" />
@@ -46,13 +49,11 @@
         <receiver
             android:name=".commonKotlin.demoNotifcations.receiver.AlarmReceiver"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
         <receiver
             android:name=".commonKotlin.demoNotifcations.receiver.SnoozeReceiver"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
 
         <activity android:name=".commonKotlin.mvp2.views.Mvp2Activity" />
         <activity android:name=".commonKotlin.demoThread.AsynTaskActivity" />
