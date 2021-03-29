@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".commonKotlin.demoCamera.fotoapprat.Camera2Activity"></activity>
+        <activity android:name=".commonKotlin.mvp3.Mvp3Activity"></activity>
+        <activity android:name=".commonKotlin.demoCamera.fotoapprat.Camera2Activity" />
         <activity android:name=".commonKotlin.demoCamera.basic.Camera1Activity" />
         <activity android:name=".commonKotlin.demoNotifcations.Noti2Activity" />
         <activity android:name=".commonKotlin.demoNotifcations.afterNotificationActivity" />

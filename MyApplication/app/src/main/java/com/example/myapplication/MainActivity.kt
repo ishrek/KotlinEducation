@@ -34,6 +34,7 @@ import com.example.myapplication.commonKotlin.demoThread.ThreadActivity
 import com.example.myapplication.commonKotlin.demoView.DemoViewActivity
 import com.example.myapplication.commonKotlin.mvp.presenter.MainActivityPresenterImpl
 import com.example.myapplication.commonKotlin.mvp2.views.Mvp2Activity
+import com.example.myapplication.commonKotlin.mvp3.Mvp3Activity
 import com.example.myapplication.commonKotlin.sharePreferences.SharePreferenceActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.javaClass.Customer
@@ -189,6 +190,11 @@ class MainActivity : AppCompatActivity() {
     @OnClick(R.id.camera2)
     fun onDemoOpenCamera2() {
         startActivity<Camera2Activity>(this)
+    }
+
+    @OnClick(R.id.mvp3)
+    fun onOpenMVP3(){
+        startActivity<Mvp3Activity>(this)
     }
 
 
