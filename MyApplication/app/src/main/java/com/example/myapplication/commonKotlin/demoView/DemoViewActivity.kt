@@ -80,7 +80,10 @@ class DemoViewActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
-                weatherData!!.text = t.message
+                weatherData?.let {
+                    it.text = t.message
+                }
+
             }
         })
     }

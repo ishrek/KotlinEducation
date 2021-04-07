@@ -32,7 +32,7 @@ class Model: IContract.Model {
     // method to select random
     // string from the list of strings
     private val getRandomString: String
-        private get() {
+        get() {
             val random = Random()
             val index = random.nextInt(arrayList.size)
             return arrayList[index]

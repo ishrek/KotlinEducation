@@ -31,8 +31,13 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding {
-        enabled = true
+    //Data binding old
+//    dataBinding {
+//        enabled = true
+//    }
+//Data binding new
+    buildFeatures {
+        dataBinding true
     }
 
     packagingOptions {
@@ -106,4 +111,7 @@ dependencies {
     //Fotoapparat
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'io.fotoapparat:fotoapparat:2.6.1'
+
+    //Leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }

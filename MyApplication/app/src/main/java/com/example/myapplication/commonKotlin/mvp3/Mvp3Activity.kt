@@ -1,18 +1,22 @@
 package com.example.myapplication.commonKotlin.mvp3
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.commonKotlin.BaseClass.BaseActivity
 import com.example.myapplication.commonKotlin.mvp3.interfaces.IContract
 import com.example.myapplication.commonKotlin.mvp3.models.Model
 import com.example.myapplication.commonKotlin.mvp3.presenters.Presenter
+import com.google.android.material.snackbar.Snackbar
 
 //https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/
-class Mvp3Activity : AppCompatActivity(), IContract.View {
+class Mvp3Activity : BaseActivity(), IContract.View {
     private var textView: TextView? = null
 
     // creating object of Button class
@@ -23,11 +27,11 @@ class Mvp3Activity : AppCompatActivity(), IContract.View {
 
     // creating object of Presenter interface in Contract
     var presenter: Presenter? = null
+    override fun getLayoutID(): Int {
+        return R.layout.activity_mvp3
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mvp3)
-
+    override fun onCreateActivity(savedInstanceState: Bundle?) {
         // assigning ID of the TextView
         textView = findViewById(R.id.textView)
 
@@ -44,14 +48,17 @@ class Mvp3Activity : AppCompatActivity(), IContract.View {
         presenter?.let {
             this.button!!.setOnClickListener(View.OnClickListener { presenter!!.onButtonClick() })
         }
-
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyActivity() {
         presenter?.let {
             it.onDestroy()
         }
+
+        textView = null
+        button = null
+        progressBar  = null
+        presenter  = null
     }
 
     override fun showProgress() {
@@ -73,3 +80,4 @@ class Mvp3Activity : AppCompatActivity(), IContract.View {
         textView!!.text = string
     }
 }
+
